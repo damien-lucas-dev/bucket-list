@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Asul', sans-serif;
+    background-color: aliceblue;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 0 10px;
+}
+
+header {
+    background-color: #A5A58D;
+    padding: 1rem 0;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-nav a {
+    margin-left: 1rem;
+}
+
+header h1 {
+    flex: 1;
+    margin: 0 0 10px 0;
+}
+
+header a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+.header-logo {
+    font-size: 3rem;
+    font-weight: normal;
+}
+
+.header-logo img {
+    max-width: 42px;
+    margin-right: 5px;
+}
+
+.header-nav {
+    display: flex;
+}
+
+.header-nav a {
+    margin-right: 2rem;
+}
+
+main {
+    flex: 1;
+    padding: 1rem 0;
+    background-color: #FFF1E6;
+}
+
+main a {
+    color: #8c6956;
+}
+
+main h2 {
+    margin-top: 0;
+}
+
+.alert {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.alert-success {background-color: #a2a232;}
+.alert-error {background-color: #d4550e;}
+
+.wishes-list article {
+    margin-bottom: 0.5rem;
+}
+
+.wish-credit {
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* formulaires */
+label {
+    display: block;
+}
+
+input, textarea, select {
+    box-sizing: border-box;
+    width: 50%;
+    padding: 0.2rem 0.5rem;
+    margin-bottom: 1rem;
+}
+
+button {
+    padding: 0.5rem 0.7rem;
+    font-family: inherit;
+}
+
+footer {
+    padding: 2rem 0;
+    text-align: center;
+    background-color: #EDDCD2;
+}

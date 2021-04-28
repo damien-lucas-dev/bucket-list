@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Bucket-List{% endblock %}</title>
+
+    {# notre google font #}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&display=swap" >
+
+    {# notre css #}
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+    {# le favicon #}
+    <link rel="icon" href="{{ asset('img/favicon.png') }}">
+</head>
+<body>
+{# entête du site #}
+<header>
+    <div class="container">
+        <div class="header-top">
+            <h1 class="header-logo">
+                <a href="{{ path('main_home') }}" title="Go back to homepage">
+                    <img src="{{ asset('img/logo.svg') }}" alt="Bucket-List Logo">Bucket-List
+                </a>
+            </h1>
+            <nav class="user-nav">
+                <!-- todo -->
+            </nav>
+        </div>
+        <nav class="header-nav">
+            <a href="{{ path('wish_list') }}" title="All things to do">All wishes</a>
+            {# Non connecté : Login + Register #}
+            {# Connecté : Logout + Add your idae + Hello ⛩ #}
+            {% if app.user %}
+                <span    style="font-variant: all-small-caps;
+                                font-weight: bold;
+                                letter-spacing: 0.3em;
+                                padding: 0 2rem 0 2rem;">
+                    Hello {{ app.user.username }} !</span>
+                <a href="{{ path('wish_create') }}" title="Create a wish">Create one!</a>
+                <a href="{{ path('app_logout') }}" title="Logout">Log out</a>
+            {% else %}
+                <a href="{{ path('app_login') }}" title="Login!">Log in</a>
+                <a href="{{ path('app_register') }}" title="Register">Register</a>
+            {% endif %}
+            <a href="{{ path('main_about_us') }}" title="About us">About us</a>
+        </nav>
+
+    </div>
+</header>
+
+{# contenu principal de chaque page #}
+<main>
+
+    {# affiche les éventuels messages flash #}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
+</main>
+
+{# pied-de-page du site #}
+<footer>
+    <div class="container">
+        © Bucket-List {{ "now"|date("Y") }}
+    </div>
+</footer>
+</body>
+</html>
